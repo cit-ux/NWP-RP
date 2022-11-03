@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>自己紹介</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+    <section class="hero">
+        <div class="hero-body">
+            <h1 class="title is-size-1">
+                自己紹介
+            </h1>
+            <p class="is-size-3">名前:成田一登</p>
+            <p class="is-size-3">年齢:20歳</p>
+            <h2 class="is-size-4">経歴</h2>
+            <table class="table is-striped is-fullwidth">
+                <tr>
+                    <td>2002年6月25日</td>
+                    <td>爆誕</td>
+                </tr>
+                <tr>
+                    <td>2015年3月</td>
+                    <td><a href="https://www.city-urayasu.ed.jp/hgnp-es/">浦安市立東野小学校</a>卒業</td>
+                </tr>
+                <tr>
+                    <td>2018年3月</td>
+                    <td><a href="https://www.city-urayasu.ed.jp/tomioka/">浦安市立富岡中学校</a>卒業</td>
+                </tr>
+                <tr>
+                    <td>2021年3月</td>
+                    <td><a href="https://cms1.chiba-c.ed.jp/msh/">千葉県立幕張総合高等学校</a>卒業</td>
+                </tr>
+                <tr>
+                    <td>2021年4月</td>
+                    <td><a href="https://www.it-chiba.ac.jp/">千葉工業大学</a>入学</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <section class="hero">
+        <div class="hero-body">
+            <h2 class="is-size-4"> これをみているあなたの情報</h2>
+            <table class="table is-striped is-fullwidth">
+                <tr>
+                    <td>閲覧日時</td>
+                    <td>
+                        <span id="view_time"></span>
+
+                        <script type="text/javascript">
+                            document.getElementById("view_time").innerHTML = getNow();
+
+                            function getNow() {
+                                var now = new Date();
+                                var year = now.getFullYear();
+                                var mon = now.getMonth() + 1; //１を足すこと
+                                var day = now.getDate();
+                                var hour = now.getHours();
+                                var min = now.getMinutes();
+                                var sec = now.getSeconds();
+
+                                //出力用
+                                var s = year + "年" + mon + "月" + day + "日" + hour + "時" + min + "分" + sec + "秒";
+                                return s;
+                            }
+                        </script>
+                    </td>
+                </tr>
+                <tr>
+                    <td>端末情報</td>
+                    <td>
+                        <script type="text/javascript">
+                            function chkUserAgent() {
+                                var brw = false;
+                                /* ユーザーエージェントのヘッダ文字列名 */
+                                var ua = navigator.userAgent;
+                                if (ua.indexOf("Firefox") > -1) {
+                                    brw = "Firefox";
+                                } else if (ua.indexOf("Safari") > -1) {
+                                    brw = "Safari";
+                                } else if (ua.indexOf("Opera") > -1) {
+                                    brw = "Opera";
+                                } else if (ua.indexOf("MSIE 5") > -1) {
+                                    brw = "IE5";
+                                } else if (ua.indexOf("MSIE 6") > -1) {
+                                    brw = "IE6";
+                                } else if (ua.indexOf("MSIE 7") > -1) {
+                                    brw = "IE7";
+                                } else if (ua.indexOf("Netscape") > -1) {
+                                    brw = "Netscape";
+                                } else {
+                                    brw = "other";
+                                }
+                                document.getElementById("resChkUserAgent").innerHTML = "<strong>" + brw + "</strong><br>UserAgent：<code>" + ua + "</code>";
+                            }
+                        </script>
+                        <form action="#">
+                            <p><input type="button" value="ブラウザチェック" onclick="chkUserAgent()" /></p>
+                            結果：<span id="resChkUserAgent"></span>
+                        </form>
+
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</body>
+
+</html>
